@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MídiaIndoor - Notus do Brasil</title>
+  <style>
+    body {
+      background: black;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    img, video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: black;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      display: none;
+    }
+
+    .visible {
+      display: block;
+      opacity: 1;
+    }
+
+    .hidden {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <img id="slideshow" alt="Imagem local" />
+  <video id="videoPlayer" autoplay muted></video>
+
+  <script>
+    const imageFiles = ["imagem01.jpg", "imagem02.jpg"];
+    const videoFiles = ["video01.mp4", "video02.mp4", "video03.mp4"];
+
+    let imageIndex = 0;
+    let videoIndex = 0;
+    let mediaIndex = 0;
+
+    function fadeOutAll() {
+      const img = document.getElementById("slideshow");
+      const video = document.getElementById("videoPlayer");
+
+      img.classList.remove("visible");
+      img.classList.add("hidden");
+      video.classList.remove("visible");
+      video.classList.add("hidden");
+
+      setTimeout(() => {
+        img.style.display = "none";
+        video.style.display = "none";
+      }, 1000);
+    }
+
+    function showNextMedia() {
+      const img = document.getElementById("slideshow");
+      const video = document.getElementById("videoPlayer");
+
+      fadeOutAll();
+
+      setTimeout(() => {
+        if (mediaIndex % 2 === 0) {
+          // Mostrar imagem
+          const currentImage = imageFiles[imageIndex];
+          imageIndex = (imageIndex + 1) % imageFiles.length;
+
+          img.src = currentImage;
+          img.onload = () => {
+            img.style.display = "block";
+            requestAnimationFrame(() => {
+              img.classList.remove("hidden");
+              img.classList.add("visible");
+            });
+          };
+
+          mediaIndex++;
+          setTimeout(showNextMedia, 10000); // 10s para imagem
+        } else {
+          // Mostrar vídeo
+          const currentVideo = videoFiles[videoIndex];
+          videoIndex = (videoIndex + 1) % videoFiles.length;
+
+          video.src = currentVideo;
+          video.style.display = "block";
+
+          video.onloadeddata = () => {
+            requestAnimationFrame(() => {
+              video.classList.remove("hidden");
+              video.classList.add("visible");
+            });
+
+            video.play().catch(err => {
+              console.error("Erro ao tocar vídeo:", err);
+              setTimeout(showNextMedia, 1000);
+            });
+          };
+
+          video.onended = () => {
+            mediaIndex++;
+            setTimeout(showNextMedia, 500);
+          };
+        }
+      }, 1000); // espera fade-out
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      showNextMedia();
+    });
+
+    // Tecla de retorno no controle Tizen
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Backspace" || e.keyCode === 10009) {
+        console.log("Botão voltar pressionado");
+        window.location.href = "../index.html";
+      }
+    });
+  </script>
+</body>
+</html>

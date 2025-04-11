@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Slideshow Local</title>
+    <style>
+        body {
+            background: black;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        img {
+            width: 100vw;
+            height: 100vh;
+            object-fit: contain;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+    </style>
+</head>
+<body>
+    <img id="slideshow" src="" alt="Slideshow" />
+
+    <script>
+        const images = [
+            "img1.jpg",
+            "img2.jpg",
+            "img3.jpg"
+        ]; // imagens na mesma pasta
+        let index = 0;
+        let imgElement;
+
+        function startSlideshow() {
+            if (images.length === 0) return;
+
+            imgElement = document.getElementById("slideshow");
+            imgElement.src = images[index];
+            imgElement.onload = function () {
+                imgElement.style.opacity = "1";
+            };
+
+            setInterval(() => {
+                imgElement.style.opacity = "0";
+                setTimeout(() => {
+                    index = (index + 1) % images.length;
+                    imgElement.src = images[index];
+                }, 1000); // tempo da transição
+            }, 120000); // tempo por imagem (120s)
+        }
+
+        document.addEventListener('DOMContentLoaded', startSlideshow);
+
+        // Função para o botão "Voltar" do controle remoto Samsung (Tizen)
+        document.addEventListener('keydown', function (e) {
+            if (e.keyCode === 10009) { // tecla "Back" no controle Tizen
+                window.location.href = "../index.html"; // altere aqui para a página desejada
+            }
+        });
+    </script>
+</body>
+</html>

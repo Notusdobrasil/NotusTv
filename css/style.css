@@ -1,0 +1,214 @@
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+body {
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+h1 {
+    margin-bottom: 40px;
+}
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 30px;
+    max-width: 800px;
+    width: 100%;
+    padding: 0 20px;
+}
+.icon {
+    display: flex;
+    padding: 15px;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.icon img {
+    width: 80px;
+    height: 100px;
+    object-fit: contain;
+}
+.icon span {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+.screen-icon {
+    margin-top: 40px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+.screen-icon img {
+    width: 120px;
+    height: 120px;
+}
+.screen-icon span {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.fa-solid,
+.fa-network-wired {
+    font-size: 50px;
+}
+
+
+
+.returntoHome {
+    display: flex;
+    align-items: center;
+    background-color: #134596;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 15px;
+
+}
+
+.circle-left {
+    width: 45px;
+    
+
+}
+
+.textReturn {
+    font-size: 20px;
+    color: #fff;
+}
+
+
+.menuCozinha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+
+.fa-tv {
+    width: 95px;  
+}
+
+.icon.focado {
+    border: 3px solid #134596;
+    border-radius: 10px;
+}
+
+.icontv {
+    display: flex;
+    gap: 15px;
+}
+
+.fa-tv {
+    font-size: 100px;
+}
+
+
+.screen-options {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.option {
+    padding: 20px;
+    font-size: 60px;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.option.focused {
+    border-color: #134596;
+    background-color: #d1d1d1;
+}
+
+
+
+  .linkHome {
+    font-size: 20px;
+    background: #134596;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 3px solid transparent;
+  }
+
+.principalLogo {
+    width: 200px;
+}
+
+.iconeNetwork {
+    width: 1px;
+}
+
+
+  .topLogo {
+    position: fixed;
+    top: 0px;
+    padding: 15px;
+    background-color: #134596;
+    width: 100%;
+    text-align: center;
+    
+  }
+
+  .footerPage {
+    width: 100%;
+    background-color: #134596;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 30px;
+    text-align: center;
+    color: white;
+  }
+
+.linhaVerde {
+    position: fixed;
+    z-index: 1;
+    bottom: 55px;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    border: 3px solid ;
+    margin: 20px 0;
+    color: rgb(1, 123, 62);
+  }
+
+  .linhaAmarela {
+    position: fixed;
+    z-index: 2;
+    bottom: 60px;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    border: 3px solid ;
+    margin: 20px 0;
+    color: rgb(203, 173, 0);
+  }
+
+  .selo {
+    position: fixed;
+    z-index: 3;
+    bottom: 40px;
+    width: 100px;
+    right: 100px;
+
+  }

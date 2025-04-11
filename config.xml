@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/NotusTv" version="1.0.0" height="1080" width="1920" viewmodes="fullscreen">
+    <tizen:application id="GYzaiaO1hc.NotusTv" package="GYzaiaO1hc" required_version="2.3"/>
+    <author href="https://www.notus.ind.br" email="fernando.cedro@notus.ind.br">Notus do Brasil</author>
+    <content src="index.html"/>
+    <description>App para projeção de imagens, videos, anúncios para midia indor Notus</description>
+    <feature name="http://tizen.org/feature/screen.size.normal.1080.1920"/>
+    <icon src="icon.png"/>
+    <license>all Rights Reserved</license>
+    <tizen:metadata key="http://tizen.org/metadata/app_ui_type/base_screen_resolution" value="extensive"/>
+    <name>NotusTv</name>
+    <tizen:profile name="tv-samsung"/>
+    <tizen:setting screen-orientation="landscape" context-menu="enable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
+</widget>
